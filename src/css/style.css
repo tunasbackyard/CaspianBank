@@ -16,12 +16,19 @@ a {
   text-decoration: none;
 }
 
+button {
+  border: none;
+  background: inherit;
+  font-size: inherit;
+}
+
 body {
   background: var(--background-color);
 }
 
 header {
   width: 100%;
+  padding: 1.8em 0;
   color: var(--text-color);
 }
 
@@ -32,7 +39,13 @@ header .primary-navigation {
   width: 100%;
   height: 100%;
   padding: 0 2.5em;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+}
+
+header .menu {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 header .logo p {
@@ -44,17 +57,22 @@ header .logo p span {
   color: var(--primary-color);
 }
 
-header .navigation {
-  display: flex;
+header .menu-icon {
+  display: none;
+}
+
+header .menu-icon i {
+  cursor: pointer;
 }
 
 header .list {
   display: flex;
   list-style: none;
+  font-size: 1.3rem;
 }
 
 header .list .item {
-  padding: 1.8em 1em;
+  padding: 0 1em;
 }
 
 header .join-btn {
@@ -65,20 +83,26 @@ header .join-btn {
   text-transform: uppercase;
 }
 
-header .menu-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+@media (max-width: 940px) {
+  header .primary-navigation {
+    flex-direction: column;
+  }
+  header .navigation {
+    display: none;
+  }
 
-/* @media (max-width: 900px) {
+  header .menu-icon {
+    display: block;
+  }
 
-} */
+  header .list {
+    flex-wrap: wrap;
+    text-align: center;
+  }
 
-main .section {
-  width: 100%;
-}
-
-.hidden {
-  visibility: hidden;
+  header .list .item {
+    width: 100%;
+    margin: 1.2em 0;
+    padding: 0.8em 1em;
+  }
 }
