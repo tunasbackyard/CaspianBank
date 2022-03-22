@@ -94,6 +94,8 @@ main .section {
   width: 100%;
   height: 100%;
   margin: 1.2em 0;
+  padding: 0.5em 0;
+  border-top: 2px solid rgba(167, 167, 167, 0.24);
 }
 
 main .hero {
@@ -138,7 +140,7 @@ main .hero .content .button a {
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background: rgb(255, 255, 255);
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 
 main .hero .content .button a i {
@@ -151,6 +153,14 @@ main .features {
   justify-content: flex-start;
 }
 
+main .features .feature {
+  display: flex;
+  width: 100%;
+  margin: 1.2em 0;
+  padding: 3em 5em;
+  color: var(--text-color);
+  border-bottom: 2px solid rgba(167, 167, 167, 0.24);
+}
 main .features .section-meta {
   display: flex;
   flex-direction: column;
@@ -173,15 +183,6 @@ main .features .section-meta p {
   font-weight: 700;
 }
 
-main .features .feature {
-  display: flex;
-  width: 100%;
-  margin: 1.2em 0;
-  padding: 3em 5em;
-  color: var(--text-color);
-  border-top: 2px solid rgb(167, 167, 167);
-}
-
 main .features .feature .feature-meta {
   display: flex;
   flex-direction: column;
@@ -201,12 +202,12 @@ main .features .feature .image-container img {
 }
 
 main .features .feature i {
-  margin-right: 1em;
-  padding: 0.7em;
-  color: var(--primary-color);
-  background: rgb(218, 218, 218);
-  border-radius: 50em;
-  font-size: 2em;
+  padding: 0.5em 0.8em;
+  color: var(--text-color);
+  background: rgb(250, 206, 85);
+  border-radius: 5em;
+  font-size: 1.8em;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px;
 }
 
 main .features .feature h2 {
@@ -252,5 +253,15 @@ main .features .feature p {
 
   main .hero .content {
     padding: 8em 0;
+  }
+}
+
+@media (max-width: 1220px) {
+  main .features .feature {
+    flex-direction: column;
+  }
+
+  main .features .feature .image-container {
+    margin-top: 2em;
   }
 }
