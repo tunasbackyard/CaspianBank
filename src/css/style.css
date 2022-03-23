@@ -30,6 +30,7 @@ header {
   width: 100%;
   padding: 1.8em 0;
   color: var(--text-color);
+  border-bottom: 2px solid rgba(167, 167, 167, 0.24);
 }
 
 header .primary-navigation {
@@ -48,12 +49,12 @@ header .menu {
   width: 100%;
 }
 
-header .logo p {
+.logo p {
   font-weight: 600;
-  text-transform: uppercase;
+  text-transform: lowercase;
 }
 
-header .logo p span {
+.logo p span {
   color: var(--primary-color);
 }
 
@@ -95,7 +96,6 @@ main .section {
   height: 100%;
   margin: 1.2em 0;
   padding: 0.5em 0;
-  border-top: 2px solid rgba(167, 167, 167, 0.24);
 }
 
 main .hero {
@@ -220,6 +220,118 @@ main .features .feature p {
   height: 100%;
   font-size: 1.2rem;
   color: var(--text-color);
+}
+
+main .cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: rgb(255, 255, 255);
+  background: rgb(2, 1, 22);
+}
+
+main .cards .list {
+  width: 100%;
+}
+
+main .cards .list ul {
+  display: flex;
+  width: 100%;
+  list-style: none;
+}
+
+main .cards .list ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 1.2em;
+}
+
+main .cards .list ul li:hover {
+  background: rgb(17, 16, 41);
+  cursor: pointer;
+}
+
+main .cards .list li:first-child {
+  border-right: 1px solid gray;
+}
+
+main .cards .content {
+  width: 100%;
+}
+
+main .cards .content .card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 5em 0;
+  font-size: 1.7rem;
+}
+
+main .cards .content .card-container .card {
+  width: 50%;
+  color: white;
+  background: url("/src/img/card/map.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+main .cards .content .card-container .background-image {
+  width: 100%;
+  height: 100%;
+  padding: 0.9em 0.9em;
+  border-radius: 20px;
+  filter: opacity(80%);
+  background: rgb(14, 39, 49);
+}
+
+main .cards .content .card-container .card .top {
+  display: flex;
+  justify-content: space-between;
+}
+
+main .cards .content .card-container .card .middle {
+  display: flex;
+  flex-direction: column;
+  margin: 2em 0;
+}
+
+main .cards .content .card-container .card .middle .chip {
+  width: 100%;
+}
+
+main .cards .content .card-container .card .middle .chip img {
+  width: 12%;
+  height: 100%;
+  object-fit: cover;
+}
+
+main .cards .content .card-container .card .middle .card-number {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 1.2em;
+  font-weight: 700;
+  letter-spacing: 5px;
+}
+
+main .cards .content .card-container .card .middle .time {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 3em;
+}
+
+main .cards .content .card-container .card .middle .time .label {
+  font-size: 0.6em;
+}
+
+main .cards .meta {
 }
 
 @media (max-width: 940px) {
