@@ -289,13 +289,21 @@ main .cards .content .card-container .background-image {
   height: 100%;
   padding: 0.9em 0.9em;
   border-radius: 20px;
-  filter: opacity(80%);
-  background: rgb(14, 39, 49);
+  filter: opacity(87%);
+  background: linear-gradient(
+    90deg,
+    rgba(162, 61, 240, 1) 0%,
+    rgba(164, 44, 168, 1) 35%,
+    rgba(135, 26, 182, 1) 57%,
+    rgba(12, 168, 200, 1) 100%
+  );
 }
 
 main .cards .content .card-container .card .top {
   display: flex;
   justify-content: space-between;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 main .cards .content .card-container .card .middle {
