@@ -232,34 +232,6 @@ main .cards {
   background: rgb(25, 42, 66);
 }
 
-main .cards .list {
-  width: 100%;
-}
-
-main .cards .list ul {
-  display: flex;
-  width: 100%;
-  list-style: none;
-}
-
-main .cards .list ul li {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  font-size: 1.5rem;
-  padding: 1.2em;
-}
-
-main .cards .list ul li:hover {
-  background: rgb(17, 16, 41);
-  cursor: pointer;
-}
-
-main .cards .list li:first-child {
-  border-right: 1px solid rgb(63, 45, 105);
-}
-
 main .cards .content {
   display: flex;
   flex-direction: column;
@@ -272,9 +244,14 @@ main .cards .content .card-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 40%;
   margin: 5em 0;
   font-size: 1.7rem;
+  transition: transform 1.2s ease;
+}
+
+main .cards .content .card-container:hover {
+  transform: rotate3d(1, 1, 0, -55deg);
 }
 
 main .cards .content .card-container .card {
@@ -374,6 +351,21 @@ main .cards .meta ul li {
     flex-direction: column;
   }
 }
+
+@media (max-width: 1220px) {
+  main .features .feature {
+    flex-direction: column;
+  }
+
+  main .features .feature .image-container {
+    margin-top: 2em;
+  }
+
+  main .cards .content .card-container {
+    width: 60%;
+  }
+}
+
 @media (max-width: 940px) {
   header .primary-navigation {
     flex-direction: column;
@@ -408,24 +400,10 @@ main .cards .meta ul li {
   }
 
   main .cards .content .card-container {
-    width: 100%;
+    width: 90%;
   }
 
   main .cards .meta {
     flex-direction: column;
-  }
-}
-
-@media (max-width: 1220px) {
-  main .features .feature {
-    flex-direction: column;
-  }
-
-  main .features .feature .image-container {
-    margin-top: 2em;
-  }
-
-  main .cards .content .card-container {
-    width: 70%;
   }
 }
