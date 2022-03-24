@@ -161,7 +161,7 @@ main .features .feature {
   color: var(--text-color);
   border-bottom: 2px solid rgba(167, 167, 167, 0.24);
 }
-main .features .section-meta {
+.section-meta {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -169,7 +169,7 @@ main .features .section-meta {
   width: 100%;
 }
 
-main .features .section-meta .title {
+.section-meta .title {
   width: 100%;
   padding: 0 0 1em 5em;
   font-size: 1.2rem;
@@ -229,7 +229,6 @@ main .cards {
   align-items: center;
   width: 100%;
   color: rgb(255, 255, 255);
-  background: rgb(25, 42, 66);
 }
 
 main .cards .content {
@@ -238,7 +237,7 @@ main .cards .content {
   justify-content: center;
   align-items: center;
   width: 100%;
-  border-bottom: 2px solid rgb(52, 57, 119);
+  background: rgb(28, 54, 70);
 }
 
 main .cards .content .card-container {
