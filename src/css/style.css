@@ -229,7 +229,7 @@ main .cards {
   align-items: center;
   width: 100%;
   color: rgb(255, 255, 255);
-  background: rgb(2, 1, 22);
+  background: rgb(25, 42, 66);
 }
 
 main .cards .list {
@@ -257,7 +257,7 @@ main .cards .list ul li:hover {
 }
 
 main .cards .list li:first-child {
-  border-right: 1px solid gray;
+  border-right: 1px solid rgb(63, 45, 105);
 }
 
 main .cards .content {
@@ -275,11 +275,14 @@ main .cards .content .card-container {
 
 main .cards .content .card-container .card {
   width: 50%;
+  min-width: 650px;
   color: white;
   background: url("/src/img/card/map.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 main .cards .content .card-container .background-image {
   width: 100%;
@@ -332,6 +335,26 @@ main .cards .content .card-container .card .middle .time .label {
 }
 
 main .cards .meta {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 2em 0;
+}
+
+main .cards .meta h3 {
+  font-size: 2.2rem;
+}
+
+main .cards .meta ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+main .cards .meta ul li {
+  margin: 0 1.2em;
 }
 
 @media (max-width: 940px) {
