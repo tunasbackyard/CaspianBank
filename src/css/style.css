@@ -10,7 +10,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 
 a {
@@ -70,6 +70,7 @@ header .list {
   display: flex;
   list-style: none;
   font-size: 1.3rem;
+  font-weight: 600;
 }
 
 header .list .item {
@@ -135,6 +136,9 @@ main .hero .content .button {
   align-items: center;
   margin-top: 8em;
 }
+main .hero .content .button:hover a i {
+  transform: rotate(360deg);
+}
 
 main .hero .content .button a {
   display: flex;
@@ -149,6 +153,7 @@ main .hero .content .button a {
 
 main .hero .content .button a i {
   margin-left: 0.5em;
+  transition: transform 1.1s ease;
 }
 
 main .features {

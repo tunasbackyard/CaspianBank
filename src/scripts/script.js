@@ -2,15 +2,44 @@
 
 const DOM = {
   getElements() {
-    this.toggleBtn = document.querySelector("#toggle-btn");
-    this.navigationMenu = document.querySelector(".navigation");
     this.navbar = document.querySelector(".primary-navigation");
+    this.navigationMenu = document.querySelector(".navigation");
+    this.toggleBtn = document.querySelector("#toggle-btn");
     this.logo = document.querySelector(".logo");
     this.navLinks = document.querySelectorAll(".link");
+    this.moreBtn = document.querySelector(".button");
+    this.featuresSection = document.querySelector(".features");
   },
 };
 
 DOM.getElements();
+
+DOM.moreBtn.addEventListener("click", scrollTo.bind(DOM.featuresSection));
+
+function scrollTo(e) {
+  e.preventDefault();
+  this.scrollIntoView({ behavior: "smooth" });
+}
+
+DOM.navLinks.forEach((link) => {
+  if (isNotJoinBtn(link)) {
+    link.addEventListener(
+      "click",
+      scrollTo.bind(getScrollDestinationForLinks(link))
+    );
+  }
+});
+
+function isNotJoinBtn(element) {
+  if (element.classList.contains("join-btn")) {
+    return false;
+  }
+  return true;
+}
+
+function getScrollDestinationForLinks(element) {
+  return document.getElementById(element.getAttribute("href"));
+}
 
 DOM.navbar.addEventListener("mouseover", handleNavLinkAnimation.bind(0.5));
 DOM.navbar.addEventListener("mouseout", handleNavLinkAnimation.bind(1));
