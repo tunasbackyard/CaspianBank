@@ -238,6 +238,30 @@ main .cards .content {
   align-items: center;
   width: 100%;
   background: rgb(28, 54, 70);
+  border-bottom: 1px solid rgb(92, 87, 145);
+}
+main .cards .meta {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding-top: 0.5em;
+}
+
+main .cards .meta h3 {
+  font-size: 2.2rem;
+  margin: 0.5em;
+}
+
+main .cards .meta ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: square;
+}
+
+main .cards .meta ul li {
+  margin: 0.4em 2em;
 }
 
 main .cards .content .card-container {
@@ -340,36 +364,6 @@ main .cards .content .card-container .card .middle .time .label {
   font-size: 0.6em;
 }
 
-main .cards .meta {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  padding: 2em 0;
-}
-
-main .cards .meta h3 {
-  font-size: 2.2rem;
-  margin: 0.5em;
-}
-
-main .cards .meta ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-}
-
-main .cards .meta ul li {
-  margin: 0.4em;
-}
-
-@media (max-width: 550px) {
-  main .cards .meta ul {
-    flex-direction: column;
-  }
-}
-
 @media (max-width: 1220px) {
   main .features .feature {
     flex-direction: column;
@@ -418,10 +412,20 @@ main .cards .meta ul li {
   }
 
   main .cards .content .card-container {
-    width: 90%;
+    width: 70%;
   }
 
   main .cards .meta {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 550px) {
+  main .cards .meta ul {
+    flex-direction: column;
+  }
+
+  main .cards .content .card-container {
+    width: 95%;
   }
 }
