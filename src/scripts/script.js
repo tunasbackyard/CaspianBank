@@ -2,10 +2,11 @@
 
 const DOM = {
   getElements() {
+    this.logo = document.querySelector(".logo");
     this.navbar = document.querySelector(".primary-navigation");
     this.navigationMenu = document.querySelector(".navigation");
     this.toggleBtn = document.querySelector("#toggle-btn");
-    this.logo = document.querySelector(".logo");
+    this.sectionTitle = document.querySelector(".section-meta p");
     this.linkList = document.querySelector(".list");
     this.navLinks = document.querySelectorAll(".link");
     this.moreBtn = document.querySelector(".button");
@@ -14,7 +15,11 @@ const DOM = {
 };
 
 DOM.getElements();
-
+window.addEventListener("scroll", function () {
+  if (this.scrollY > 200) {
+    DOM.sectionTitle.style.animation = "to-top 0.5s ease-in forwards";
+  }
+});
 DOM.moreBtn.addEventListener("click", scrollTo.bind(DOM.featuresSection));
 
 function scrollTo(e) {

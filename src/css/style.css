@@ -85,7 +85,7 @@ header .join-btn {
   padding: 0.3em 0.9em;
   color: rgb(255, 255, 255);
   background-color: var(--primary-color);
-  border-radius: 10px;
+  border-radius: 4px;
   text-transform: uppercase;
 }
 
@@ -125,6 +125,13 @@ main .section {
 .section-meta p {
   width: 100%;
   text-align: center;
+  opacity: 0;
+}
+
+@keyframes to-top {
+  100% {
+    opacity: 1;
+  }
 }
 
 .section span {
@@ -448,6 +455,55 @@ main .rates .container .rate .rate-list .rate-item .rate-meta p {
 main .rates .container .rate .rate-list .rate-item .value {
   font-weight: 700;
 }
+
+main .join {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  width: 100%;
+  color: white;
+  background: rgb(27, 20, 39);
+}
+
+main .join .section-meta .title {
+  color: white;
+}
+
+main .join .content {
+  padding-bottom: 3em;
+  width: 100%;
+  text-align: center;
+}
+
+main .join .content > p {
+  padding: 1em 0 2em 0;
+  font-size: 2rem;
+}
+
+main .join .content > p span {
+  font-size: inherit;
+  color: rgb(250, 206, 85);
+}
+
+main .join .content a {
+  padding: 0.7em 0.9em;
+  color: rgb(27, 20, 39);
+  background: rgb(250, 206, 85);
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+main .join .content a:hover {
+  background: rgb(248, 200, 69);
+}
+
+footer {
+  width: 100%;
+  height: 100%;
+  background: rgb(27, 20, 39);
+}
+
 /*  */
 
 @media (max-width: 1220px) {
