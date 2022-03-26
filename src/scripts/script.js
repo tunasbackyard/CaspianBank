@@ -6,6 +6,7 @@ const DOM = {
     this.navigationMenu = document.querySelector(".navigation");
     this.toggleBtn = document.querySelector("#toggle-btn");
     this.logo = document.querySelector(".logo");
+    this.linkList = document.querySelector(".list");
     this.navLinks = document.querySelectorAll(".link");
     this.moreBtn = document.querySelector(".button");
     this.featuresSection = document.querySelector(".features");
@@ -22,7 +23,7 @@ function scrollTo(e) {
 }
 
 DOM.navLinks.forEach((link) => {
-  if (isNotJoinBtn(link)) {
+  if (!isJoinBtn(link)) {
     link.addEventListener(
       "click",
       scrollTo.bind(getScrollDestinationForLinks(link))
@@ -30,11 +31,18 @@ DOM.navLinks.forEach((link) => {
   }
 });
 
-function isNotJoinBtn(element) {
+// function isLink(element, className) {
+//   if (element.classList.contains(className)) {
+//     return true;
+//   }
+//   return false;
+// }
+
+function isJoinBtn(element) {
   if (element.classList.contains("join-btn")) {
-    return false;
+    return true;
   }
-  return true;
+  return false;
 }
 
 function getScrollDestinationForLinks(element) {
