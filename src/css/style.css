@@ -313,7 +313,8 @@ main .cards .content .card-container:hover {
 main .cards .content .card-container .card {
   width: 100%;
   color: white;
-  background: url("/src/img/card/map.png");
+
+  background: url("../img/card/map.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -323,7 +324,7 @@ main .cards .content .card-container .card {
 }
 
 #card {
-  background: url("/src/img/card/coin.png");
+  background: url("../img/card/coin.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
