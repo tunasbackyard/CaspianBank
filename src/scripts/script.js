@@ -63,15 +63,15 @@ function isNavbarLink(event, className) {
   return false;
 }
 
-function getCurrentlyHovered(event) {
-  return event.target;
-}
-
 function isCurrentlyHovered(event, element) {
   if (element === getCurrentlyHovered(event)) {
     return true;
   }
   return false;
+}
+
+function getCurrentlyHovered(event) {
+  return event.target;
 }
 
 function setOpacity(element, level) {
