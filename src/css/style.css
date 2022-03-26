@@ -101,6 +101,35 @@ main .section {
   height: 100%;
   margin: 1.2em 0;
   padding: 0.5em 0;
+  border-top: 1px solid rgb(146, 146, 146);
+}
+
+.section-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 1.2em;
+  padding: 0 0 1em 5em;
+}
+
+.section-meta .title {
+  width: 100%;
+  font-size: 1.2rem;
+  margin-bottom: 1.1em;
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.section-meta p {
+  width: 100%;
+  text-align: center;
+}
+
+.section span {
+  width: 100%;
+  font-size: 0.8em;
 }
 
 main .hero {
@@ -169,21 +198,6 @@ main .features .feature {
   padding: 3em 5em;
   color: var(--text-color);
 }
-.section-meta {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-}
-
-.section-meta .title {
-  width: 100%;
-  padding: 0 0 1em 5em;
-  font-size: 1.2rem;
-  color: var(--primary-color);
-  text-decoration: underline;
-}
 
 main .features .section-meta p {
   font-size: 2.5rem;
@@ -207,6 +221,7 @@ main .features .feature .image-container img {
   width: 100%;
   height: 100%;
   opacity: 80%;
+  filter: blur(8px);
 }
 
 main .features .feature i {
@@ -389,7 +404,7 @@ main .rates .container .rate {
   flex-direction: column;
   width: 100%;
   margin: 0.9em;
-  border: 2px solid rgba(161, 161, 161, 0.384);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 main .rates .container .rate h3 {
@@ -482,6 +497,14 @@ main .rates .container .rate .rate-list .rate-item .value {
     padding: 8em 0;
   }
 
+  main .features .feature p {
+    width: 100%;
+  }
+
+  main .features .feature .image-container {
+    width: 100%;
+  }
+
   main .cards .content .card-container {
     width: 70%;
   }
@@ -500,6 +523,9 @@ main .rates .container .rate .rate-list .rate-item .value {
 }
 
 @media (max-width: 550px) {
+  main .features .feature {
+    padding: 1.2em 0.9em;
+  }
   main .cards .content .card-container {
     width: 95%;
   }
@@ -510,6 +536,7 @@ main .rates .container .rate .rate-list .rate-item .value {
 
   main .rates .container {
     flex-direction: column;
+    padding: 0;
   }
   main .rates .container .rate .rate-list .rate-item {
     flex-direction: column;
