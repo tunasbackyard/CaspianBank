@@ -373,6 +373,67 @@ main .cards .content .card-container .card .middle .time .label {
   font-size: 0.6em;
 }
 
+main .rates {
+}
+
+main .rates .container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0 5em;
+}
+
+main .rates .container .rate {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0.9em;
+  border: 2px solid rgba(161, 161, 161, 0.384);
+}
+
+main .rates .container .rate h3 {
+  width: 100%;
+  padding: 2em 0;
+  color: white;
+  background-color: var(--primary-color);
+  text-align: center;
+}
+
+main .rates .container .rate .rate-list {
+  width: 100%;
+  margin-top: 2em;
+  list-style: none;
+}
+
+main .rates .container .rate .rate-list .rate-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 1.2em 0;
+  font-size: 1.2rem;
+}
+
+main .rates .container .rate .rate-list .rate-item .rate-meta {
+  width: 40%;
+}
+
+main .rates .container .rate .rate-list .rate-item .rate-meta h4 {
+  width: 100%;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  font-size: 1.3em;
+}
+
+main .rates .container .rate .rate-list .rate-item .rate-meta p {
+  font-size: 0.9em;
+}
+
+main .rates .container .rate .rate-list .rate-item .value {
+  font-weight: 700;
+}
+/*  */
+
 @media (max-width: 1220px) {
   main .features .feature {
     flex-direction: column;
@@ -431,10 +492,29 @@ main .cards .content .card-container .card .middle .time .label {
   main .cards .content .meta ul {
     flex-direction: column;
   }
+
+  main .rates .container {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 550px) {
   main .cards .content .card-container {
     width: 95%;
+  }
+
+  main .rates .container {
+    flex-direction: column;
+  }
+
+  main .rates .container {
+    flex-direction: column;
+  }
+  main .rates .container .rate .rate-list .rate-item {
+    flex-direction: column;
+  }
+
+  main .rates .container .rate .rate-list .rate-item .value {
+    margin-top: 1.2em;
   }
 }
