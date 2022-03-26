@@ -228,7 +228,7 @@ main .features .feature .image-container img {
   width: 100%;
   height: 100%;
   opacity: 80%;
-  filter: blur(8px);
+  /* filter: blur(8px); */
 }
 
 main .features .feature i {
@@ -308,19 +308,6 @@ main .cards .content .card-container:hover {
   /* transform: rotate3d(1, 1, 0, -55deg);
   transform: rotate(-10deg); */
   animation: card-effect 5s ease;
-}
-
-@keyframes card-effect {
-  20% {
-    transform: rotate3d(1, 1, 0, -35deg);
-  }
-  70% {
-    transform: rotate(-10deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
 }
 
 main .cards .content .card-container .card {
@@ -627,5 +614,18 @@ footer .copyrights a {
 
   main .rates .container .rate .rate-list .rate-item .value {
     margin-top: 1.2em;
+  }
+}
+
+@keyframes card-effect {
+  20% {
+    transform: rotate3d(1, 1, 0, -35deg);
+  }
+  70% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
   }
 }
