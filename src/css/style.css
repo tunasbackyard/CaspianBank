@@ -305,7 +305,22 @@ main .cards .content .card-container {
 }
 
 main .cards .content .card-container:hover {
-  transform: rotate3d(1, 1, 0, -55deg);
+  /* transform: rotate3d(1, 1, 0, -55deg);
+  transform: rotate(-10deg); */
+  animation: card-effect 5s ease;
+}
+
+@keyframes card-effect {
+  20% {
+    transform: rotate3d(1, 1, 0, -35deg);
+  }
+  70% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 main .cards .content .card-container .card {
