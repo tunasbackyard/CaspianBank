@@ -501,7 +501,19 @@ main .join .content a:hover {
 footer {
   width: 100%;
   height: 100%;
+  color: white;
   background: rgb(27, 20, 39);
+}
+
+footer .copyrights {
+  padding: 0.4em 0;
+  color: rgb(165, 165, 165);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+footer .copyrights a {
+  color: rgb(248, 200, 69);
 }
 
 /*  */
