@@ -373,9 +373,6 @@ main .cards .content .card-container .card .middle .time .label {
   font-size: 0.6em;
 }
 
-main .rates {
-}
-
 main .rates .container {
   display: flex;
   justify-content: space-around;
