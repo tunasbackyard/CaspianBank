@@ -680,7 +680,11 @@ footer .copyrights a {
 
   main .rates .container {
     flex-direction: column;
-    padding: 0;
+    padding: 0.2em;
+  }
+
+  main .rates .container .rate {
+    margin: 2em 0;
   }
   main .rates .container .rate .rate-list .rate-item {
     flex-direction: column;
