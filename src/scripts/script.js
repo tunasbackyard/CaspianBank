@@ -11,15 +11,27 @@ const DOM = {
     this.navLinks = document.querySelectorAll(".link");
     this.moreBtn = document.querySelector(".button");
     this.featuresSection = document.querySelector(".features");
+    this.toTopIcon = document.querySelector(".to-top-icon");
   },
 };
 
 DOM.getElements();
+
 window.addEventListener("scroll", function () {
-  if (this.scrollY > 200) {
+  if (getScrollPositionY(this) > 200) {
     DOM.sectionTitle.style.animation = "to-top 0.5s ease-in forwards";
   }
+  if (getScrollPositionY(this) === 0) {
+    DOM.toTopIcon.style.display = "none";
+  } else {
+    DOM.toTopIcon.style.display = "flex";
+  }
 });
+
+function getScrollPositionY(window) {
+  return window.scrollY;
+}
+
 DOM.moreBtn.addEventListener("click", scrollTo.bind(DOM.featuresSection));
 
 function scrollTo(e) {
@@ -28,29 +40,13 @@ function scrollTo(e) {
 }
 
 DOM.navLinks.forEach((link) => {
-  if (!isJoinBtn(link)) {
-    link.addEventListener(
-      "click",
-      scrollTo.bind(getScrollDestinationForLinks(link))
-    );
-  }
+  link.addEventListener(
+    "click",
+    scrollTo.bind(getScrollingDestinationForLinks(link))
+  );
 });
 
-// function isLink(element, className) {
-//   if (element.classList.contains(className)) {
-//     return true;
-//   }
-//   return false;
-// }
-
-function isJoinBtn(element) {
-  if (element.classList.contains("join-btn")) {
-    return true;
-  }
-  return false;
-}
-
-function getScrollDestinationForLinks(element) {
+function getScrollingDestinationForLinks(element) {
   return document.getElementById(element.getAttribute("href"));
 }
 
