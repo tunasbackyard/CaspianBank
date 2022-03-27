@@ -464,6 +464,7 @@ main .join {
   flex-direction: column;
   margin-bottom: 0;
   width: 100%;
+  padding-bottom: 10em;
   color: white;
   background: rgb(27, 20, 39);
 }
@@ -506,6 +507,64 @@ footer {
   height: 100%;
   color: white;
   background: rgb(27, 20, 39);
+}
+
+footer .content {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 2em 0 5em 0;
+}
+
+footer .content .company-meta {
+  width: 20%;
+}
+
+footer .content .company-meta h1 {
+  margin-bottom: 0.5em;
+}
+
+footer .content .company-meta p {
+  color: rgb(150, 150, 150);
+}
+
+footer .content .links {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 35%;
+}
+
+footer .content .links ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+footer .content .links ul li {
+  margin: 0 1.2em;
+}
+
+footer .content .links ul li a:hover {
+  color: rgb(250, 206, 85);
+}
+
+footer .content .media {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-size: 1.2rem;
+}
+
+footer .content .media i {
+  margin: 0.6em 3em;
+  transition: all 1.5s ease;
+}
+
+footer .content .media i:hover {
+  cursor: pointer;
+  color: rgb(250, 206, 85);
+  transform: rotate(360deg);
 }
 
 footer .copyrights {
