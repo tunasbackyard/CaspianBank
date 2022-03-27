@@ -542,7 +542,7 @@ footer .content .links ul {
 }
 
 footer .content .links ul li {
-  margin: 0 1.2em;
+  margin: 0.9em 1.2em;
 }
 
 footer .content .links ul li a:hover {
@@ -650,6 +650,20 @@ footer .copyrights a {
   main .rates .container {
     flex-direction: column;
   }
+
+  footer .content .company-meta {
+    width: 70%;
+  }
+
+  footer .content .links {
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+
+  footer .content .links ul {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 550px) {
@@ -674,6 +688,32 @@ footer .copyrights a {
 
   main .rates .container .rate .rate-list .rate-item .value {
     margin-top: 1.2em;
+  }
+
+  footer .content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer .content .company-meta {
+    width: 95%;
+  }
+  footer .content .links {
+    margin: 1.2em 0;
+    width: 95%;
+  }
+
+  footer .content .links ul {
+    flex-direction: row;
+  }
+
+  footer .content .media {
+    flex-direction: row;
+  }
+
+  footer .content .media i {
+    margin: 1.2em 1em;
   }
 }
 
