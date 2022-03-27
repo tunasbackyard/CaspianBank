@@ -6,6 +6,7 @@ const DOM = {
     this.navbar = document.querySelector(".primary-navigation");
     this.navigationMenu = document.querySelector(".navigation");
     this.toggleBtn = document.querySelector("#toggle-btn");
+    this.sections = document.querySelectorAll(".section");
     this.sectionTitle = document.querySelector(".section-meta p");
     this.linkList = document.querySelector(".list");
     this.navLinks = document.querySelectorAll(".link");
@@ -33,8 +34,28 @@ function handleIconDisplay(entries, observer) {
   });
 }
 
-function getScrollPositionY(window) {
-  return window.scrollY;
+const sectionObserver = new IntersectionObserver(handleSectionAnimation, {
+  root: null,
+  threshold: 0.15,
+});
+
+DOM.sections.forEach((section) => {
+  if (!isHeroSection(section, "hero")) sectionObserver.observe(section);
+});
+
+function isHeroSection(section, className) {
+  if (section.classList.contains(className)) return true;
+  return false;
+}
+
+function handleSectionAnimation(entries, observer) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+
+  if (entry.target.classList.contains("section-hidden")) {
+    entry.target.classList.remove("section-hidden");
+    observer.unobserve(entry.target);
+  }
 }
 
 DOM.moreBtn.addEventListener("click", scrollTo.bind(DOM.featuresSection));

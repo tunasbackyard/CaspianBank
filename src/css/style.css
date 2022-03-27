@@ -102,6 +102,7 @@ main .section {
   margin: 1.2em 0;
   padding: 0.5em 0;
   border-top: 1px solid rgb(146, 146, 146);
+  transition: all 0.5s ease;
 }
 
 .section-meta {
@@ -125,7 +126,6 @@ main .section {
 .section-meta p {
   width: 100%;
   text-align: center;
-  opacity: 0;
 }
 
 @keyframes to-top {
@@ -732,6 +732,11 @@ footer .copyrights a {
   100% {
     transform: rotate(0deg);
   }
+}
+
+.section-hidden {
+  opacity: 0;
+  transform: translateY(3rem);
 }
 
 .to-top-icon {
