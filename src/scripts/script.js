@@ -17,16 +17,21 @@ const DOM = {
 
 DOM.getElements();
 
-window.addEventListener("scroll", function () {
-  if (getScrollPositionY(this) > 200) {
-    DOM.sectionTitle.style.animation = "to-top 0.5s ease-in forwards";
-  }
-  if (getScrollPositionY(this) === 0) {
-    DOM.toTopIcon.style.display = "none";
-  } else {
-    DOM.toTopIcon.style.display = "flex";
-  }
+const iconObserver = new IntersectionObserver(handleIconDisplay, {
+  root: null,
+  threshold: 0,
 });
+iconObserver.observe(section0);
+
+function handleIconDisplay(entries, observer) {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) {
+      DOM.toTopIcon.style.display = "flex";
+    } else {
+      DOM.toTopIcon.style.display = "none";
+    }
+  });
+}
 
 function getScrollPositionY(window) {
   return window.scrollY;
