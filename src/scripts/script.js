@@ -32,7 +32,14 @@ function lazyLoadImages(entries, observer) {
   if (!entry.isIntersecting) return;
 
   entry.target.src = entry.target.dataset.src;
-  entry.target.classList.remove("lazy-image");
+  entry.target.addEventListener(
+    "load",
+    removeClass(entry.target, "lazy-image")
+  );
+}
+
+function removeClass(element, className) {
+  element.classList.remove(className);
 }
 
 const iconObserver = new IntersectionObserver(handleIconDisplay, {
