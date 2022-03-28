@@ -21,11 +21,43 @@ DOM.getElements();
 
 const imageObserver = new IntersectionObserver(lazyLoadImages, {
   root: null,
-  threshold: 0.1,
+  threshold: 1,
 });
 DOM.lazyImages.forEach((image) => {
   imageObserver.observe(image);
 });
+
+const iconObserver = new IntersectionObserver(handleIconDisplay, {
+  root: null,
+  threshold: 0,
+});
+iconObserver.observe(section0);
+
+const sectionObserver = new IntersectionObserver(handleSectionAnimation, {
+  root: null,
+  threshold: 0.15,
+});
+DOM.sections.forEach((section) => {
+  if (!isHeroSection(section, "hero")) sectionObserver.observe(section);
+});
+
+DOM.moreBtn.addEventListener("click", scrollTo.bind(DOM.featuresSection));
+DOM.navLinks.forEach((link) => {
+  link.addEventListener(
+    "click",
+    scrollTo.bind(getScrollingDestinationForLinks(link))
+  );
+});
+DOM.navbar.addEventListener("mouseout", handleNavLinkAnimation.bind(1));
+DOM.navbar.addEventListener("mouseover", handleNavLinkAnimation.bind(0.5));
+DOM.toggleBtn.addEventListener("click", function () {
+  if (isShowed(DOM.navigationMenu)) {
+    changeDisplay(DOM.navigationMenu, "none");
+  } else {
+    changeDisplay(DOM.navigationMenu, "block");
+  }
+});
+
 function lazyLoadImages(entries, observer) {
   const [entry] = entries;
 
@@ -38,75 +70,30 @@ function lazyLoadImages(entries, observer) {
   observer.unobserve(entry.target);
 }
 
-function removeClass(element, className) {
-  element.classList.remove(className);
-}
-
-const iconObserver = new IntersectionObserver(handleIconDisplay, {
-  root: null,
-  threshold: 0,
-});
-iconObserver.observe(section0);
-
 function handleIconDisplay(entries, observer) {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) {
-      DOM.toTopIcon.style.display = "flex";
+      changeDisplay(DOM.toTopIcon, "flex");
     } else {
-      DOM.toTopIcon.style.display = "none";
+      changeDisplay(DOM.toTopIcon, "none");
     }
   });
-}
-
-const sectionObserver = new IntersectionObserver(handleSectionAnimation, {
-  root: null,
-  threshold: 0.15,
-});
-
-DOM.sections.forEach((section) => {
-  if (!isHeroSection(section, "hero")) sectionObserver.observe(section);
-});
-
-function isHeroSection(section, className) {
-  if (section.classList.contains(className)) return true;
-  return false;
 }
 
 function handleSectionAnimation(entries, observer) {
   const [entry] = entries;
   if (!entry.isIntersecting) return;
 
-  if (entry.target.classList.contains("section-hidden")) {
-    entry.target.classList.remove("section-hidden");
+  if (checkClass(entry.target, "section-hidden")) {
+    removeClass(entry.target, "section-hidden");
     observer.unobserve(entry.target);
   }
 }
 
-DOM.moreBtn.addEventListener("click", scrollTo.bind(DOM.featuresSection));
-
-function scrollTo(e) {
-  e.preventDefault();
-  this.scrollIntoView({ behavior: "smooth" });
-}
-
-DOM.navLinks.forEach((link) => {
-  link.addEventListener(
-    "click",
-    scrollTo.bind(getScrollingDestinationForLinks(link))
-  );
-});
-
-function getScrollingDestinationForLinks(element) {
-  return document.getElementById(element.getAttribute("href"));
-}
-
-DOM.navbar.addEventListener("mouseover", handleNavLinkAnimation.bind(0.5));
-DOM.navbar.addEventListener("mouseout", handleNavLinkAnimation.bind(1));
-
-function handleNavLinkAnimation(e) {
-  if (isNavbarLink(e, "link")) {
+function handleNavLinkAnimation(event) {
+  if (isNavbarLink(event, "link")) {
     DOM.navLinks.forEach((link) => {
-      if (!isCurrentlyHovered(e, link)) {
+      if (!isCurrentlyHovered(event, link)) {
         setOpacity(link, this);
       }
     });
@@ -115,8 +102,41 @@ function handleNavLinkAnimation(e) {
   }
 }
 
+function scrollTo(event) {
+  event.preventDefault();
+  this.scrollIntoView({ behavior: "smooth" });
+}
+
+function getScrollingDestinationForLinks(element) {
+  return document.getElementById(element.getAttribute("href"));
+}
+
+function getCurrentlyHovered(event) {
+  return event.target;
+}
+
+function changeDisplay(element, value) {
+  element.style.display = value;
+}
+
+function setOpacity(element, level) {
+  element.style.opacity = level;
+}
+
+function isShowed(element) {
+  if (getComputedStyle(element).display === "none") {
+    return false;
+  }
+  return true;
+}
+
+function isHeroSection(section, className) {
+  if (checkClass(section, className)) return true;
+  return false;
+}
+
 function isNavbarLink(event, className) {
-  if (event.target.classList.contains(className)) {
+  if (checkClass(event.target, className)) {
     return true;
   }
   return false;
@@ -129,37 +149,10 @@ function isCurrentlyHovered(event, element) {
   return false;
 }
 
-function getCurrentlyHovered(event) {
-  return event.target;
+function checkClass(element, className) {
+  return element.classList.contains(className);
 }
 
-function setOpacity(element, level) {
-  element.style.opacity = level;
-}
-
-DOM.toggleBtn.addEventListener("click", function () {
-  changeDisplay(DOM.navigationMenu);
-});
-
-function changeDisplay(element) {
-  if (isShowed(element)) {
-    showElement(element);
-  } else {
-    hideElement(element);
-  }
-}
-
-function isShowed(element) {
-  if (getComputedStyle(element).display === "none") {
-    return true;
-  }
-  return false;
-}
-
-function showElement(element) {
-  element.style.display = "block";
-}
-
-function hideElement(element) {
-  element.style.display = "none";
+function removeClass(element, className) {
+  element.classList.remove(className);
 }
