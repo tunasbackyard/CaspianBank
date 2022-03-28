@@ -36,6 +36,7 @@ function lazyLoadImages(entries, observer) {
     "load",
     removeClass(entry.target, "lazy-image")
   );
+  observer.unobserve(entry.target);
 }
 
 function removeClass(element, className) {
