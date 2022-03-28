@@ -12,11 +12,28 @@ const DOM = {
     this.navLinks = document.querySelectorAll(".link");
     this.moreBtn = document.querySelector(".button");
     this.featuresSection = document.querySelector(".features");
+    this.lazyImages = document.querySelectorAll("img[data-src]");
     this.toTopIcon = document.querySelector(".to-top-icon");
   },
 };
 
 DOM.getElements();
+
+const imageObserver = new IntersectionObserver(lazyLoadImages, {
+  root: null,
+  threshold: 0.1,
+});
+DOM.lazyImages.forEach((image) => {
+  imageObserver.observe(image);
+});
+function lazyLoadImages(entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+
+  entry.target.src = entry.target.dataset.src;
+  entry.target.classList.remove("lazy-image");
+}
 
 const iconObserver = new IntersectionObserver(handleIconDisplay, {
   root: null,

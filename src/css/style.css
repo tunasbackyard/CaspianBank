@@ -229,6 +229,7 @@ main .features .feature .image-container img {
   height: 100%;
   opacity: 80%;
   /* filter: blur(8px); */
+  transition: all 1.3s ease;
 }
 
 main .features .feature i {
@@ -737,6 +738,10 @@ footer .copyrights a {
 .section-hidden {
   opacity: 0;
   transform: translateY(3rem);
+}
+
+.lazy-image {
+  filter: blur(10px);
 }
 
 .to-top-icon {
