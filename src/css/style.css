@@ -249,8 +249,10 @@ main .features .feature h2 {
 main .features .feature p {
   width: 50%;
   height: 100%;
-  font-size: 1.2rem;
   color: var(--text-color);
+  font-size: 1.2rem;
+  text-align: left;
+  line-height: 1.6em;
 }
 
 main .cards {
