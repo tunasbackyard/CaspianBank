@@ -273,6 +273,8 @@ main .cards .slider-container {
   display: none;
   justify-content: space-evenly;
   width: 100%;
+  opacity: 0;
+  animation: text-change 2s ease forwards;
 }
 
 main .card-meta .card-features {
@@ -739,6 +741,12 @@ footer .copyrights a {
 
   100% {
     transform: rotate(0deg);
+  }
+}
+
+@keyframes text-change {
+  100% {
+    opacity: 1;
   }
 }
 
