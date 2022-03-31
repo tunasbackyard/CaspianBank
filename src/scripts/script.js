@@ -14,6 +14,11 @@ const DOM = {
     this.featuresSection = document.querySelector(".features");
     this.lazyImages = document.querySelectorAll("img[data-src]");
     this.toTopIcon = document.querySelector(".to-top-icon");
+    this.cardMeta1 = document.querySelector(".card--1");
+    this.cardContainer1 = document.querySelector(".container--1");
+    this.cardMeta2 = document.querySelector(".card--2");
+    this.cardContainer2 = document.querySelector(".container--2");
+    this.dotIcons = document.querySelector(".dot-icons");
   },
 };
 
@@ -56,6 +61,12 @@ DOM.toggleBtn.addEventListener("click", function () {
   } else {
     changeDisplay(DOM.navigationMenu, "block");
   }
+});
+DOM.dotIcons.addEventListener("click", function (e) {
+  if (!isDotIcon(e.target)) return;
+  if (checkClass(e.target, "icon--active")) return;
+  changeActiveCard();
+  changeActiveIcon();
 });
 
 function lazyLoadImages(entries, observer) {
@@ -102,6 +113,30 @@ function handleNavLinkAnimation(event) {
   }
 }
 
+function changeActiveCard() {
+  if (
+    checkClass(DOM.cardMeta1, "card--active") &&
+    checkClass(DOM.cardContainer1, "card--active")
+  ) {
+    removeClass(DOM.cardMeta1, "card--active");
+    removeClass(DOM.cardContainer1, "card--active");
+    addClass(DOM.cardMeta2, "card--active");
+    addClass(DOM.cardContainer2, "card--active");
+  } else {
+    removeClass(DOM.cardMeta2, "card--active");
+    removeClass(DOM.cardContainer2, "card--active");
+    addClass(DOM.cardMeta1, "card--active");
+    addClass(DOM.cardContainer1, "card--active");
+  }
+}
+
+function changeActiveIcon() {
+  [...DOM.dotIcons.children].forEach((icon) => {
+    if (checkClass(icon, "icon--active")) removeClass(icon, "icon--active");
+    else addClass(icon, "icon--active");
+  });
+}
+
 function scrollTo(event) {
   event.preventDefault();
   this.scrollIntoView({ behavior: "smooth" });
@@ -121,6 +156,11 @@ function changeDisplay(element, value) {
 
 function setOpacity(element, level) {
   element.style.opacity = level;
+}
+
+function isDotIcon(element) {
+  if (checkClass(element, "icon")) return true;
+  return false;
 }
 
 function isShowed(element) {
@@ -151,6 +191,10 @@ function isCurrentlyHovered(event, element) {
 
 function checkClass(element, className) {
   return element.classList.contains(className);
+}
+
+function addClass(element, className) {
+  element.classList.add(className);
 }
 
 function removeClass(element, className) {

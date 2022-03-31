@@ -269,8 +269,8 @@ main .cards .slider-container {
   height: 100%;
 }
 
-main .card-meta {
-  display: flex;
+.card-meta {
+  display: none;
   justify-content: space-evenly;
   width: 100%;
 }
@@ -284,10 +284,6 @@ main .card-meta .card-features li {
   margin: 0 1.2em;
 }
 
-main .card--1 {
-  display: none;
-}
-
 main .card-slider {
   display: flex;
   justify-content: center;
@@ -296,7 +292,7 @@ main .card-slider {
 }
 
 .card-container {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   width: 40%;
@@ -307,6 +303,10 @@ main .card-slider {
 
 .card-container:hover {
   animation: card-effect 5s ease;
+}
+
+.card--active {
+  display: flex;
 }
 
 .card-container .card {
@@ -402,10 +402,11 @@ main .card-slider {
   color: gray;
 }
 .dot-icons i {
+  cursor: pointer;
   margin: 0 0.2em;
 }
 
-.icon-active {
+.icon--active {
   color: var(--text-color);
 }
 
